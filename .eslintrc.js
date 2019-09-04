@@ -6,21 +6,19 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
+    'prettier',
     'eslint:recommended',
     'plugin:vue/base',
     'plugin:vue/essential',
     'plugin:vue/strongly-recommended',
-    'plugin:vue/recommended'
+    'plugin:vue/recommended',
   ],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
-    ecmaFeatures: {
-      experimentalObjectRestSpread: true
-    },
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
   },
-  plugins: ['vue'],
+  plugins: ['vue', 'prettier'],
   rules: {
     'import/no-unresolved': 'warning',
     'import/extensions': { js: 'never' },
@@ -35,10 +33,10 @@ module.exports = {
       {
         attribute: 1,
         closeBracket: 0,
-        alignAttributesVertically: true
-      }
+        alignAttributesVertically: true,
+      },
     ],
     'vue/html-self-closing': ['warn'],
-    'vue/require-default-prop': ['warn']
-  }
+    'vue/require-default-prop': ['warn'],
+  },
 };

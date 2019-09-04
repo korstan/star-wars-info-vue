@@ -5,7 +5,9 @@
         Data Table
       </slot>
     </h2>
-    <div v-if="!dataArray.length">Loading data...</div>
+    <div v-if="!dataArray.length">
+      Loading data...
+    </div>
     <table v-else>
       <thead>
         <tr>
@@ -23,7 +25,10 @@
           :key="obj.uid"
           @click="$emit('setRoute', obj.uid)"
         >
-          <td v-for="item in order" :key="item">
+          <td
+            v-for="item in order"
+            :key="item"
+          >
             {{ obj[item] }}
           </td>  
         </tr>
