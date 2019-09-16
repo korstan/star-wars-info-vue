@@ -3,12 +3,32 @@
     <div :class="$style.logo">
       Star Wars API
     </div>
+    <div @click="toggleMenu">
+      Menu
+    </div>
+    <div 
+      :class="$style.signOutBtn"
+      @click="signOut"
+    >
+      Sign Out
+    </div>
   </header>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { UserSignOut } from '@/app/core/services/authentication';
+
 export default {
   name: 'HeaderPanel',
+  methods: {
+    ...mapActions({ toggleMenu: 'TOGGLE_MENU_VISIBLE' }),
+    signOut() {
+      UserSignOut()
+        .then(() => this.$router.push('/login'))
+        .catch();
+    },
+  },
 };
 </script>
 
@@ -20,14 +40,21 @@ export default {
   width: 100%;
   background-color: black;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: black;
+  -webkit-text-stroke: 1px #fadb03;
 }
 .logo {
-  -webkit-text-stroke: 1px #fadb03;
   font-size: 30pt;
   font-weight: bold;
   padding: 0 10px;
   background-color: black;
   cursor: default;
+}
+.signOutBtn {
+  font-size: 15pt;
+  cursor: pointer;
+  margin-right: 10px;
 }
 </style>

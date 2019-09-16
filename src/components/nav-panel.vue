@@ -12,18 +12,10 @@
     >
       Characters
     </div>
-    <button 
-      :class="[$style.signOutBtn]"
-      @click="signOut()"
-    >
-      Sign Out
-    </button>
   </div>
 </template>
 
 <script>
-import { UserSignOut } from '@/app/core/services/authentication';
-
 export default {
   name: 'NavPanel',
   methods: {
@@ -32,11 +24,6 @@ export default {
     },
     routeToCharacters() {
       this.$router.push('/characters');
-    },
-    signOut() {
-      UserSignOut()
-        .then(() => this.$router.push('/login'))
-        .catch();
     },
   },
 };
