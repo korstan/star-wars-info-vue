@@ -1,8 +1,5 @@
 <template>
   <div :class="$style.navBar">
-    <div :class="$style.logo">
-      Star Wars API
-    </div>
     <div
       :class="$style.navElement"
       @click="routeToFilms()"
@@ -15,18 +12,10 @@
     >
       Characters
     </div>
-    <button 
-      :class="[$style.signOutBtn]"
-      @click="signOut()"
-    >
-      Sign Out
-    </button>
   </div>
 </template>
 
 <script>
-import { UserSignOut } from '@/app/core/services/authentication';
-
 export default {
   name: 'NavPanel',
   methods: {
@@ -36,29 +25,21 @@ export default {
     routeToCharacters() {
       this.$router.push('/characters');
     },
-    signOut() {
-      UserSignOut()
-        .then(() => this.$router.push('/login'))
-        .catch();
-    },
   },
 };
 </script>
 
 <style module>
 .navBar {
-  height: 50px;
+  position: fixed;
+  height: 100%;
+  width: 280px;
   display: flex;
+  flex-direction: column;
   font-size: 30pt;
   font-weight: bold;
   color: black;
-  background-color: #fadb03;
-}
-.logo {
-  -webkit-text-stroke: 2px #fadb03;
-  padding: 0 10px;
-  background-color: black;
-  cursor: default;
+  background-color: lightgray;
 }
 .signOutBtn {
   background-color: black;
@@ -69,7 +50,6 @@ export default {
   flex: 1 -10%;
 }
 .navElement {
-  flex: 1;
   margin: 3px;
   background-color: black;
   color: #fadb03;
