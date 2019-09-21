@@ -1,15 +1,15 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
-import Application from '@/store/application';
-import Characters from '@/app/characters/store';
-import Films from '@/app/films/store';
+import application from '@/store/application';
+import characters from '@/app/characters/store';
+import films from '@/app/films/store';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    Application,
-    Characters,
-    Films,
+    application,
+    characters,
+    films,
   },
 });

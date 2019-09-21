@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 import HeaderPanel from '@/components/header-panel';
 import NavPanel from '@/components/nav-panel';
 
@@ -18,7 +18,7 @@ export default {
     NavPanel,
   },
   computed: {
-    ...mapGetters({ isMenuVisible: 'getMenuVisible' }),
+    ...mapState({ isMenuVisible: state => state.application.isMenuVisible }),
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.detailsWrapper">
-    <DetailsForm
-      :objectToDetail="film"
+    <DetailsForm 
+      :objectToDetail="film" 
       :detailsInfo="filmDetailsInfo"
     >
       Film Details
@@ -17,12 +17,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions, mapState } from 'vuex';
 import DetailsForm from '@/components/details/details-form';
 import DetailsList from '@/components/details/details-list';
-import { FETCH_FILM_BY_ID } from '@/app/films/store/types';
 import mapDetailsInfo from '@/app/core/services/detailsService';
-import { FETCH_ALL_CHARACTERS } from '@/app/characters/store/types';
 
 export default {
   name: 'FilmDetails',
@@ -43,17 +41,22 @@ export default {
     };
   },
   computed: {
+    ...mapState({
+      film: state => state.films.currentFilm,
+    }),
     ...mapGetters({
-      film: 'getCurrentFilm',
-      getFilmCharacters: 'getSelectedCharacters',
+      getFilmCharacters: 'characters/getSelectedCharacters',
     }),
   },
   mounted() {
     this.FETCH_FILM_BY_ID(this.$route.params.id);
-    this.FETCH_ALL_CHARACTERS();
+    this.fetchAllChars();
   },
   methods: {
-    ...mapActions([FETCH_FILM_BY_ID, FETCH_ALL_CHARACTERS]),
+    ...mapActions({
+      FETCH_FILM_BY_ID: 'films/FETCH_FILM_BY_ID',
+      fetchAllChars: 'characters/FETCH_ALL_CHARACTERS',
+    }),
     handleRoute(uid) {
       this.$router.push(`/characters/${uid}`);
     },

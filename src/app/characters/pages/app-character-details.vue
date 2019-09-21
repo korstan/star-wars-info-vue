@@ -8,9 +8,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import DetailsForm from '@/components/details/details-form';
-import { FETCH_CHARACTER_BY_ID } from '@/app/characters/store/types';
 import mapDetailsInfo from '@/app/core/services/detailsService';
 
 export default {
@@ -34,15 +33,17 @@ export default {
     };
   },
   computed: {
-    ...mapGetters({
-      character: 'getCurrentCharacter',
+    ...mapState({
+      character: state => state.characters.currentCharacter,
     }),
   },
   mounted() {
-    this.FETCH_CHARACTER_BY_ID(this.$route.params.id);
+    this.fetchCharById(this.$route.params.id);
   },
   methods: {
-    ...mapActions([FETCH_CHARACTER_BY_ID]),
+    ...mapActions({
+      fetchCharById: 'characters/FETCH_CHARACTER_BY_ID'
+    }),
   },
 };
 </script>

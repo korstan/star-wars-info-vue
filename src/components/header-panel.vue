@@ -25,7 +25,7 @@ import { UserSignOut } from '@/app/core/services/authentication';
 export default {
   name: 'HeaderPanel',
   methods: {
-    ...mapActions({ toggleMenu: 'TOGGLE_MENU_VISIBLE' }),
+    ...mapActions({ toggleMenu: 'application/TOGGLE_IS_MENU_VISIBLE' }),
     signOut() {
       UserSignOut()
         .then(() => this.$router.push('/login'))
