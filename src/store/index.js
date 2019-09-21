@@ -1,8 +1,8 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 import application from '@/store/application';
-import characters from '@/app/characters/store';
-import films from '@/app/films/store';
+import characters from '@/store/characters';
+import films from '@/store/films';
 
 Vue.use(Vuex);
 
