@@ -10,8 +10,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import { FETCH_ALL_FILMS } from '@/app/films/store/types';
+import { mapActions, mapState } from 'vuex';
 import DataTable from '@/components/data-table';
 
 export default {
@@ -20,15 +19,15 @@ export default {
     DataTable,
   },
   computed: {
-    dataArray() {
-      return this.$store.getters.getAllFilms;
-    },
+    ...mapState({ 
+      dataArray: state => state.films.allFilms, 
+    }),
   },
   mounted() {
-    this.FETCH_ALL_FILMS();
+    this.fetchAllFilms();
   },
   methods: {
-    ...mapActions([FETCH_ALL_FILMS]),
+    ...mapActions({fetchAllFilms: 'films/FETCH_ALL_FILMS'}),
     handleRoute(uid) {
       this.$router.push(`/films/${uid}`);
     },

@@ -5,13 +5,12 @@
     :headers="['ID', 'Name']"
     @setRoute="handleRoute"
   >
-    Characters 
+    Characters
   </DataTable>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import { FETCH_ALL_CHARACTERS } from '@/app/characters/store/types';
+import { mapActions, mapState } from 'vuex';
 import DataTable from '@/components/data-table';
 
 export default {
@@ -20,15 +19,17 @@ export default {
     DataTable,
   },
   computed: {
-    dataArray() {
-      return this.$store.getters.getAllCharacters;
-    },
+    ...mapState({ 
+      dataArray: state => state.characters.allCharacters,
+    }),
   },
   mounted() {
-    this.FETCH_ALL_CHARACTERS();
+    this.fetchAllChars();
   },
   methods: {
-    ...mapActions([FETCH_ALL_CHARACTERS]),
+    ...mapActions({
+      fetchAllChars: 'characters/FETCH_ALL_CHARACTERS',
+    }),
     handleRoute(uid) {
       this.$router.push(`/characters/${uid}`);
     },
