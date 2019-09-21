@@ -1,10 +1,13 @@
 <template>
   <header :class="$style.headerPanel">
+    <div 
+      :class="[$style.button, $style.menuBtn]" 
+      @click="toggleMenu"
+    >
+      Menu
+    </div>
     <div :class="$style.logo">
       Star Wars API
-    </div>
-    <div @click="toggleMenu">
-      Menu
     </div>
     <div 
       :class="$style.signOutBtn"
@@ -52,9 +55,13 @@ export default {
   background-color: black;
   cursor: default;
 }
-.signOutBtn {
+.button {
+  height: 100%;
   font-size: 15pt;
   cursor: pointer;
+}
+.signOutBtn {
+  font-size: 15pt;
   margin-right: 10px;
 }
 </style>

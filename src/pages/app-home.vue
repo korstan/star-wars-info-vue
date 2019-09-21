@@ -7,9 +7,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import HeaderPanel from '@/components/header-panel';
 import NavPanel from '@/components/nav-panel';
-import { mapGetters } from 'vuex';
 
 export default {
   name: 'AppHome',
