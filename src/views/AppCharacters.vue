@@ -11,7 +11,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import DataTable from '@/components/data-table';
+import DataTable from '@/components/data/DataTable';
 
 export default {
   name: 'AppCharacters',

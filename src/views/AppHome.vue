@@ -8,8 +8,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import HeaderPanel from '@/components/header-panel';
-import NavPanel from '@/components/nav-panel';
+import HeaderPanel from '@/components/TheHeader';
+import NavPanel from '@/components/TheNavbar';
 
 export default {
   name: 'AppHome',

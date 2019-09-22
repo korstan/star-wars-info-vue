@@ -9,7 +9,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
-import DetailsForm from '@/components/details/details-form';
+import DetailsForm from '@/components/data/DetailsForm';
 import mapDetailsInfo from '@/app/core/services/detailsService';
 
 export default {

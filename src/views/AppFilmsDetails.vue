@@ -18,8 +18,8 @@
 
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex';
-import DetailsForm from '@/components/details/details-form';
-import DetailsList from '@/components/details/details-list';
+import DetailsForm from '@/components/data/DetailsForm';
+import DetailsList from '@/components/data/DetailsList';
 import mapDetailsInfo from '@/app/core/services/detailsService';
 
 export default {
