@@ -5,17 +5,17 @@
       alt="Star Wars Logo"
       src="https://www.freepnglogos.com/uploads/star-wars-logo-3.png"
     >
-    <SignForm />
+    <TheLoginForm />
   </div>
 </template>
 
 <script>
-import SignForm from '@/app/login/components/sign-form';
+import TheLoginForm from '@/components/TheLoginForm';
 
 export default {
   name: 'AppLogin',
   components: {
-    SignForm,
+    TheLoginForm,
   },
 };
 </script>

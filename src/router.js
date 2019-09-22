@@ -1,12 +1,12 @@
 import firebase from 'firebase';
 import Vue from 'vue';
 import Router from 'vue-router';
-import AppLogin from '@/app/login/pages/app-login';
-import AppFilms from '@/app/films/pages/app-films';
-import AppHome from '@/pages/app-home';
-import AppFilmDetails from '@/app/films/pages/app-film-details';
-import AppCharacters from '@/app/characters/pages/app-characters';
-import AppCharacterDetails from '@/app/characters/pages/app-character-details';
+import AppLogin from '@/views/AppLogin';
+import AppHome from '@/views/AppHome';
+import AppFilms from '@/views/AppFilms';
+import AppFilmsDetails from '@/views/AppFilmsDetails';
+import AppCharacters from '@/views/AppCharacters';
+import AppCharactersDetails from '@/views/AppCharactersDetails';
 
 Vue.use(Router);
 
@@ -24,7 +24,7 @@ const router = new Router({
         {
           path: 'films/:id',
           name: 'filmDetails',
-          component: AppFilmDetails,
+          component: AppFilmsDetails,
         },
         {
           path: 'characters',
@@ -34,7 +34,7 @@ const router = new Router({
         {
           path: 'characters/:id',
           name: 'characterDetails',
-          component: AppCharacterDetails,
+          component: AppCharactersDetails,
         },
       ],
       meta: {

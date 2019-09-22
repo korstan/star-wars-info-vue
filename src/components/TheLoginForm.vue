@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { UserSignIn, UserSignUp } from '@/app/core/services/authentication';
+import { UserSignIn, UserSignUp } from '@/utils/authentication';
 
 export default {
   name: 'SignForm',

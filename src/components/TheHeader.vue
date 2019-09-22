@@ -20,7 +20,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { UserSignOut } from '@/app/core/services/authentication';
+import { UserSignOut } from '@/utils/authentication';
 
 export default {
   name: 'HeaderPanel',
