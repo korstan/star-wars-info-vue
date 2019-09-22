@@ -1,7 +1,7 @@
 import {
   fetchDataArray,
   fetchDataById
-} from '@/app/core/services/databaseService';
+} from '@/utils/databaseService';
 
 export default {
   namespaced: true,

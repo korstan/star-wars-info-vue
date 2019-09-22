@@ -20,7 +20,7 @@
 import { mapGetters, mapActions, mapState } from 'vuex';
 import DetailsForm from '@/components/data/DetailsForm';
 import DetailsList from '@/components/data/DetailsList';
-import mapDetailsInfo from '@/app/core/services/detailsService';
+import mapDetailsInfo from '@/utils/detailsService';
 
 export default {
   name: 'FilmDetails',
