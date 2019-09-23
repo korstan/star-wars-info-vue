@@ -37,7 +37,7 @@ export default {
 
 <style module>
 .headerPanel {
-  padding: 5px 10px;
+  padding: 5px 0;
   position: fixed;
   top: 0;
   height: 40px;
@@ -52,7 +52,6 @@ export default {
 .logo {
   font-size: 30pt;
   font-weight: bold;
-  padding: 0 10px;
   background-color: black;
   cursor: default;
 }
