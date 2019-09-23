@@ -8,7 +8,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import HeaderPanel from '@/components/TheHeader';
+import HeaderPanel from '@/components/header/TheHeader';
 import NavPanel from '@/components/TheNavbar';
 
 export default {
