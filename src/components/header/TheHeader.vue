@@ -1,29 +1,29 @@
 <template>
   <header :class="$style.headerPanel">
-    <div 
-      :class="[$style.button, $style.menuBtn]" 
-      @click="toggleMenu"
-    >
-      Menu
-    </div>
+    <HeaderMenuBtn 
+      @menuBtnClick="toggleMenu"
+    />
     <div :class="$style.logo">
       Star Wars API
     </div>
-    <div 
-      :class="$style.signOutBtn"
-      @click="signOut"
-    >
-      Sign Out
-    </div>
+    <HeaderSignOutBtn 
+      @signOutBtnClick="signOut"
+    />
   </header>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import { UserSignOut } from '@/utils/authentication';
+import HeaderMenuBtn from '@/components/header/HeaderMenuBtn';
+import HeaderSignOutBtn from '@/components/header/HeaderSignOutBtn';
 
 export default {
   name: 'HeaderPanel',
+  components: {
+    HeaderMenuBtn,
+    HeaderSignOutBtn,
+  },
   methods: {
     ...mapActions({ toggleMenu: 'application/TOGGLE_IS_MENU_VISIBLE' }),
     signOut() {
@@ -37,9 +37,10 @@ export default {
 
 <style module>
 .headerPanel {
+  padding: 5px 0;
   position: fixed;
   top: 0;
-  height: 50px;
+  height: 40px;
   width: 100%;
   background-color: black;
   display: flex;
@@ -51,17 +52,7 @@ export default {
 .logo {
   font-size: 30pt;
   font-weight: bold;
-  padding: 0 10px;
   background-color: black;
   cursor: default;
-}
-.button {
-  height: 100%;
-  font-size: 15pt;
-  cursor: pointer;
-}
-.signOutBtn {
-  font-size: 15pt;
-  margin-right: 10px;
 }
 </style>
