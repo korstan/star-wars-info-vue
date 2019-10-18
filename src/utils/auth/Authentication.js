@@ -20,7 +20,7 @@ export default {
     TokensHelper.RemoveTokens();
   },
   async UserSignUp({ email, password }) {
-    return await Axios.post(AppConfig.endpoint.sign, {
+    return await Axios.post(AppConfig.endpoint.signUp, {
       email,
       password,
       returnSecureToken: true,
