@@ -23,7 +23,7 @@ const fetchDataArray = async refString => {
 };
 
 const fetchDataById = async (refString, id) => {
-  return await Axios.get(databaseUrl + `${refString}/${id}`).then(
+  return await Axios.get(databaseUrl + `${refString}/${id}.json`).then(
     ({ data }) => data.fields,
   );
   // let data = await firebase
