@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import Vue from 'vue';
 import Router from 'vue-router';
 import AppLogin from '@/views/AppLogin';
@@ -7,6 +6,7 @@ import AppFilms from '@/views/AppFilms';
 import AppFilmsDetails from '@/views/AppFilmsDetails';
 import AppCharacters from '@/views/AppCharacters';
 import AppCharactersDetails from '@/views/AppCharactersDetails';
+import TokensHelper from '@/utils/TokensHelper';
 
 Vue.use(Router);
 
@@ -54,11 +54,11 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser;
+  const isAuthenticated = !!TokensHelper.GetIdToken();
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-  if (requiresAuth && !currentUser) next('login');
-  else if (!requiresAuth && currentUser) next('films');
+  if (requiresAuth && !isAuthenticated) next('login');
+  else if (!requiresAuth && isAuthenticated) next('films');
   else next();
 });
 

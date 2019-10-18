@@ -14,7 +14,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { UserSignOut } from '@/utils/authentication';
+import Authentication from '@/utils/auth/Authentication';
 import HeaderMenuBtn from '@/components/header/HeaderMenuBtn';
 import HeaderSignOutBtn from '@/components/header/HeaderSignOutBtn';
 
@@ -27,7 +27,7 @@ export default {
   methods: {
     ...mapActions({ toggleMenu: 'application/TOGGLE_IS_MENU_VISIBLE' }),
     signOut() {
-      UserSignOut()
+      Authentication.UserSignOut()
         .then(() => this.$router.push('/login'))
         .catch();
     },

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { UserSignIn, UserSignUp } from '@/utils/authentication';
+import Authentication from '@/utils/auth/Authentication';
 
 export default {
   name: 'SignForm',
@@ -58,22 +58,15 @@ export default {
     /** Dispatching sign in action from store, routing on films page and catching errors */
 
     signIn() {
-      UserSignIn(this.credentials)
-        .then(() => this.$router.push('films'))
-        .catch(error => {
-          if (error.code === 'auth/wrong-password') {
-            alert('Wrong password!');
-          } else {
-            alert(error.message);
-          }
-        });
+      Authentication.UserSignIn(this.credentials)
+        .then(() => this.$router.push('films'));
     },
     /** Dispatching sign up action from store, routing on films page and catching errors */
     signUp() {
       if (this.repeatedPassword === this.credentials.password) {
-        UserSignUp(this.credentials)
-          .then(() => this.$router.push('films'))
-          .catch(error => alert(error.message));
+        Authentication.UserSignUp(this.credentials)
+          .then(() => Authentication.UserSignIn(this.credentials))
+          .then(() => this.$router.push('films'));
       } else {
         alert('Passwords does not match!');
       }
