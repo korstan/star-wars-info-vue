@@ -27,9 +27,8 @@ export default {
   methods: {
     ...mapActions({ toggleMenu: 'application/TOGGLE_IS_MENU_VISIBLE' }),
     signOut() {
-      Authentication.UserSignOut()
-        .then(() => this.$router.push('/login'))
-        .catch();
+      Authentication.UserSignOut();
+      this.$router.push('/login');
     },
   },
 };
