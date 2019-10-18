@@ -4,7 +4,7 @@ import AppConfig from '@/AppConfig';
 const databaseUrl = AppConfig.endpoint.database;
 
 const fetchDataArray = async refString => {
-  return await Axios.get(databaseUrl + refString).then(({ data }) =>
+  return await Axios.get(databaseUrl + `${refString}.json`).then(({ data }) =>
     data.map((rawData, dbIndex) => {
       const normalizedData = rawData.fields;
       normalizedData.uid = dbIndex;
