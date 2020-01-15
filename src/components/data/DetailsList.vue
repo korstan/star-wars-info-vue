@@ -3,19 +3,18 @@
     <h3>
       <slot>Details List</slot>
     </h3>
-    <ol>
-      <li
+    <div
+      :class="$style.detailsListWrapper"
+    >
+      <a
         v-for="obj in objectsArray"
         :key="obj.uid"
+        href=""
+        @click.prevent="$emit('setRoute', obj.uid)"
       >
-        <a
-          href=""
-          @click.prevent="$emit('setRoute', obj.uid)"
-        >
-          {{ obj[field] }}
-        </a>
-      </li>
-    </ol>
+        {{ obj[field] }},
+      </a>
+    </div>
   </div>
 </template>
 
@@ -35,5 +34,10 @@ export default {
 };
 </script>
 
-<style>
+<style module>
+  .detailsListWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 </style>
