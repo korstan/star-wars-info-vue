@@ -12,6 +12,12 @@
     >
       Characters
     </div>
+    <div
+      :class="$style.navElement"
+      @click="routeToPlanets()"
+    >
+      Planets
+    </div>
   </div>
 </template>
 
@@ -24,6 +30,9 @@ export default {
     },
     routeToCharacters() {
       this.$router.push('/characters');
+    },
+    routeToPlanets() {
+      this.$router.push('/planets');
     },
   },
 };
