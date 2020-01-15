@@ -1,8 +1,8 @@
 <template>
   <DataTable
     :dataArray="dataArray"
-    :order="['uid', 'name']"
-    :headers="['ID', 'Name']"
+    :order="['uid', 'name', 'gender', 'birth_year', 'homeworld']"
+    :headers="['ID', 'Name', 'Gender', 'Birth Year', 'Homeworld ID']"
     @setRoute="handleRoute"
   >
     Characters
@@ -19,7 +19,7 @@ export default {
     DataTable,
   },
   computed: {
-    ...mapState({ 
+    ...mapState({
       dataArray: state => state.characters.allCharacters,
     }),
   },
@@ -37,5 +37,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
