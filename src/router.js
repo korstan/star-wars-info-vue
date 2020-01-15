@@ -6,6 +6,8 @@ import AppFilms from '@/views/AppFilms';
 import AppFilmsDetails from '@/views/AppFilmsDetails';
 import AppCharacters from '@/views/AppCharacters';
 import AppCharactersDetails from '@/views/AppCharactersDetails';
+import AppPlanets from '@/views/AppPlanets';
+import AppPlanetsDetails from '@/views/AppPlanetsDetails';
 import TokensHelper from '@/utils/TokensHelper';
 
 Vue.use(Router);
@@ -35,6 +37,16 @@ const router = new Router({
           path: 'characters/:id',
           name: 'characterDetails',
           component: AppCharactersDetails,
+        },
+        {
+          path: 'planets',
+          name: 'planets',
+          component: AppPlanets,
+        },
+        {
+          path: 'planets/:id',
+          name: 'planeetDetails',
+          component: AppPlanetsDetails,
         },
       ],
       meta: {
