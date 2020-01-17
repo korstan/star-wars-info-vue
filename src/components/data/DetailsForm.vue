@@ -5,18 +5,27 @@
         Details Form
       </slot>
     </h3>
-    <p
-      v-for="(detail, index) in detailsInfo"
-      :key="index"
-    >
-      <span>
-        <strong>{{ detail.label }}</strong>: {{ objectToDetail[detail.field] }}
-      </span>
-    </p>
+    <div v-if="fetchStatus === fetchStatusEnum.LOADING">
+      Loading data...
+    </div>
+    <div v-if="fetchStatus === fetchStatusEnum.ERROR">
+      Error!
+    </div>
+    <div v-if="fetchStatus === fetchStatusEnum.DONE">
+      <p v-for="(detail, index) in detailsInfo" :key="index">
+        <span>
+          <strong>{{ detail.label }}</strong
+          >: {{ objectToDetail[detail.field] }}
+        </span>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import fetchStatusEnum from '@/utils/FetchStatusEnum';
+
 export default {
   name: 'DetailsForm',
   props: {
@@ -26,12 +35,20 @@ export default {
     },
     detailsInfo: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
-  computed: {},
+  data() {
+    return {
+      fetchStatusEnum,
+    };
+  },
+  computed: {
+    ...mapState({
+      fetchStatus: state => state.data.fetchStatus,
+    }),
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

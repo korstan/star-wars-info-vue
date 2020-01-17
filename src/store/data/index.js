@@ -1,14 +1,15 @@
+import films from '@/store/data/films';
+import characters from '@/store/data/characters';
+import planets from '@/store/data/planets';
+
 import { fetchDataArray, fetchDataById } from '@/utils/databaseService';
 
-const FetchStatus = {
-  INIT: 'Initializing...',
-  LOADING: 'Loading...',
-  DONE: 'Done!',
-  ERROR: 'ERROR!',
-};
+import FetchStatus from '@/utils/FetchStatusEnum';
 
 export default {
   namespaced: true,
+  modules: { films, characters, planets },
+
   state: {
     fetchStatus: FetchStatus.INIT,
   },
@@ -24,7 +25,7 @@ export default {
         commit('SET_FETCH_STATUS', FetchStatus.ERROR);
       }
     },
-    FETCH_DATA_BY_ID: async ({ commit }, databaseRefString, id) => {
+    FETCH_DATA_BY_ID: async ({ commit }, {databaseRefString, id}) => {
       commit('SET_FETCH_STATUS', FetchStatus.LOADING);
       try {
         const data = await fetchDataById(databaseRefString, id);

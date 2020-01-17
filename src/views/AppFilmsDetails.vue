@@ -42,10 +42,10 @@ export default {
   },
   computed: {
     ...mapState({
-      film: state => state.films.currentFilm,
+      film: state => state.data.films.currentFilm,
     }),
     ...mapGetters({
-      getFilmCharacters: 'characters/getSelectedCharacters',
+      getFilmCharacters: 'data/characters/getSelectedCharacters',
     }),
   },
   mounted() {
@@ -54,8 +54,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      FETCH_FILM_BY_ID: 'films/FETCH_FILM_BY_ID',
-      fetchAllChars: 'characters/FETCH_ALL_CHARACTERS',
+      FETCH_FILM_BY_ID: 'data/films/FETCH_FILM_BY_ID',
+      fetchAllChars: 'data/characters/FETCH_ALL_CHARACTERS',
     }),
     handleRoute(uid) {
       this.$router.push(`/characters/${uid}`);

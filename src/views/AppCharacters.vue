@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapState({
-      dataArray: state => state.characters.allCharacters,
+      dataArray: state => state.data.characters.allCharacters,
     }),
   },
   mounted() {
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchAllChars: 'characters/FETCH_ALL_CHARACTERS',
+      fetchAllChars: 'data/characters/FETCH_ALL_CHARACTERS',
     }),
     handleRoute(uid) {
       this.$router.push(`/characters/${uid}`);

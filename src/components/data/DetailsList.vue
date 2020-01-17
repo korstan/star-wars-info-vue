@@ -3,7 +3,14 @@
     <h3>
       <slot>Details List</slot>
     </h3>
+    <div v-if="fetchStatus === fetchStatusEnum.LOADING">
+      Loading data...
+    </div>
+    <div v-if="fetchStatus === fetchStatusEnum.ERROR">
+      Error!
+    </div>
     <div
+      v-if="fetchStatus === fetchStatusEnum.DONE"
       :class="$style.detailsListWrapper"
     >
       <a
@@ -19,6 +26,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import fetchStatusEnum from '@/utils/FetchStatusEnum';
+
 export default {
   name: 'DetailsList',
   props: {
@@ -31,13 +41,23 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      fetchStatusEnum,
+    };
+  },
+  computed: {
+    ...mapState({
+      fetchStatus: state => state.data.fetchStatus,
+    }),
+  },
 };
 </script>
 
 <style module>
-  .detailsListWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+.detailsListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 </style>

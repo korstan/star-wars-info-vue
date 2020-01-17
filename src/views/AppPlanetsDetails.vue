@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     ...mapState({
-      planet: state => state.planets.currentPlanet,
+      planet: state => state.data.planets.currentPlanet,
     }),
   },
   mounted() {
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchPlanetById: 'planets/FETCH_PLANET_BY_ID'
+      fetchPlanetById: 'data/planets/FETCH_PLANET_BY_ID'
     }),
   },
 };

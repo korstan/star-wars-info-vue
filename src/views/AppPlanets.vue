@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapState({ 
-      dataArray: state => state.planets.allPlanets,
+      dataArray: state => state.data.planets.allPlanets,
     }),
   },
   mounted() {
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchAllPlanets: 'planets/FETCH_ALL_PLANETS',
+      fetchAllPlanets: 'data/planets/FETCH_ALL_PLANETS',
     }),
     handleRoute(uid) {
       this.$router.push(`/planets/${uid}`);

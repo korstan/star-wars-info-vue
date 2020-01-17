@@ -23,12 +23,12 @@ export default {
     // }))
   },
   actions: {
-    FETCH_ALL_CHARACTERS: async ({ commit }) => {
-      const allCharacters = await fetchDataArray(databaseRefString);
+    FETCH_ALL_CHARACTERS: async ({ commit, dispatch }) => {
+      const allCharacters = await dispatch('data/FETCH_ALL_DATA', databaseRefString, { root: true });
       commit('SET_ALL_CHARACTERS', allCharacters);
     },
-    FETCH_CHARACTER_BY_ID: async ({ commit }, id) => {
-      const character = await fetchDataById(databaseRefString, id);
+    FETCH_CHARACTER_BY_ID: async ({ commit, dispatch }, id) => {
+      const character = await dispatch('data/FETCH_DATA_BY_ID', {databaseRefString, id}, {root: true});
       commit('SET_CURRENT_CHARACTER', character);
     }
   },
