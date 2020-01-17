@@ -3,6 +3,8 @@ import {
   fetchDataById,
 } from '@/utils/databaseService';
 
+const databaseRefString = 'planets';
+
 export default {
   namespaced: true,
   state: {
@@ -12,11 +14,11 @@ export default {
   getters: {},
   actions: {
     FETCH_ALL_PLANETS: async ({ commit }) => {
-      const allPlanets = await fetchDataArray('planets');
+      const allPlanets = await fetchDataArray(databaseRefString);
       commit('SET_ALL_PLANETS', allPlanets);
     },
     FETCH_PLANET_BY_ID: async ({ commit }, id) => {
-      const planet = await fetchDataById('planets', id);
+      const planet = await fetchDataById(databaseRefString, id);
       commit('SET_CURRENT_PLANET', planet);
     },
   },

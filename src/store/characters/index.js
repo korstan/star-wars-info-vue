@@ -3,6 +3,8 @@ import {
   fetchDataById
 } from '@/utils/databaseService';
 
+const databaseRefString = 'people';
+
 export default {
   namespaced: true,
   state: {
@@ -22,11 +24,11 @@ export default {
   },
   actions: {
     FETCH_ALL_CHARACTERS: async ({ commit }) => {
-      const allCharacters = await fetchDataArray('people');
+      const allCharacters = await fetchDataArray(databaseRefString);
       commit('SET_ALL_CHARACTERS', allCharacters);
     },
     FETCH_CHARACTER_BY_ID: async ({ commit }, id) => {
-      const character = await fetchDataById('people', id);
+      const character = await fetchDataById(databaseRefString, id);
       commit('SET_CURRENT_CHARACTER', character);
     }
   },
