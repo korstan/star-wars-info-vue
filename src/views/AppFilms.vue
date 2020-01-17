@@ -20,14 +20,14 @@ export default {
   },
   computed: {
     ...mapState({ 
-      dataArray: state => state.films.allFilms, 
+      dataArray: state => state.data.films.allFilms, 
     }),
   },
   mounted() {
     this.fetchAllFilms();
   },
   methods: {
-    ...mapActions({fetchAllFilms: 'films/FETCH_ALL_FILMS'}),
+    ...mapActions({fetchAllFilms: 'data/films/FETCH_ALL_FILMS'}),
     handleRoute(uid) {
       this.$router.push(`/films/${uid}`);
     },

@@ -1,7 +1,4 @@
-import {
-  fetchDataArray,
-  fetchDataById,
-} from '@/utils/databaseService';
+const databaseRefString = 'films';
 
 export default {
   namespaced: true,
@@ -19,12 +16,12 @@ export default {
     // })),
   },
   actions: {
-    FETCH_ALL_FILMS: async ({ commit }) => {
-      const allFilms = await fetchDataArray('films');
+    FETCH_ALL_FILMS: async ({ commit, dispatch }) => {
+      const allFilms = await dispatch('data/FETCH_ALL_DATA', databaseRefString, { root: true });
       commit('SET_ALL_FILMS', allFilms);
     },
-    FETCH_FILM_BY_ID: async ({ commit }, id) => {
-      const film = await fetchDataById('films', id);
+    FETCH_FILM_BY_ID: async ({ commit, dispatch }, id) => {
+      const film = await dispatch('data/FETCH_DATA_BY_ID', {databaseRefString, id}, {root: true});
       commit('SET_CURRENT_FILM', film);
     },
   },

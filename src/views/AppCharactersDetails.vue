@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     ...mapState({
-      character: state => state.characters.currentCharacter,
+      character: state => state.data.characters.currentCharacter,
     }),
   },
   mounted() {
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchCharById: 'characters/FETCH_CHARACTER_BY_ID'
+      fetchCharById: 'data/characters/FETCH_CHARACTER_BY_ID'
     }),
   },
 };

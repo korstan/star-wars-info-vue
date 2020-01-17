@@ -5,10 +5,13 @@
         Data Table
       </slot>
     </h2>
-    <div v-if="!dataArray.length">
+    <div v-if="fetchStatus === fetchStatusEnum.LOADING">
       Loading data...
     </div>
-    <table v-else>
+    <div v-if="fetchStatus === fetchStatusEnum.ERROR">
+      Error!
+    </div>
+    <table v-if="fetchStatus === fetchStatusEnum.DONE">
       <thead>
         <tr>
           <th
@@ -38,6 +41,9 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import fetchStatusEnum from '@/utils/FetchStatusEnum';
+
 export default {
   name: 'DataTable',
   props: {
@@ -53,6 +59,16 @@ export default {
       type: Array,
       required: true,
     }
+  },
+  data() {
+    return {
+      fetchStatusEnum,
+    }
+  },
+  computed: {
+    ...mapState({
+      fetchStatus: state => state.data.fetchStatus,
+    }),
   },
   methods: {
     routeTo(str) {
