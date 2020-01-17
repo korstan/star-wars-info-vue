@@ -41,17 +41,17 @@ export default {
   top: 0;
   height: 40px;
   width: 100%;
-  background-color: black;
+  background-color: #1a1a1a;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black;
+  color: #1a1a1a;
   -webkit-text-stroke: 1px #fadb03;
 }
 .logo {
   font-size: 30pt;
   font-weight: bold;
-  background-color: black;
+  background-color: #1a1a1a;
   cursor: default;
 }
 </style>

@@ -54,9 +54,6 @@ export default {
 </script>
 
 <style module>
-.navBarOk {
-
-}
 .navBar {
   position: fixed;
   z-index: 1;
@@ -65,22 +62,15 @@ export default {
   flex-direction: column;
   font-size: 30pt;
   font-weight: bold;
-  color: black;
-  background-color: lightgray;
+  color: #1a1a1a;
+  background-color: #1a1a1a;
   overflow-x: hidden;
   transition: 0.5s;
-}
-.signOutBtn {
-  background-color: black;
-  color: #fadb03;
-  margin: 2px 1px;
-  font-size: 12pt;
-  font-weight: bold;
 }
 .navElement {
   display: block;
   margin: 3px;
-  background-color: black;
+  background-color: #1a1a1a;
   color: #fadb03;
   cursor: pointer;
 }
