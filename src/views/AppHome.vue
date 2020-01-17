@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <HeaderPanel />
-    <NavPanel v-if="isMenuVisible" />
+    <NavPanel />
     <router-view />
   </div>
 </template>

@@ -1,29 +1,44 @@
 <template>
-  <div :class="$style.navBar">
-    <div
+  <div :class="$style.navBar" :style="isMenuVisible ? expandedWidth : collapsedWidth">
+    <a
       :class="$style.navElement"
       @click="routeToFilms()"
     >
       Films
-    </div>
-    <div
+    </a>
+    <a
       :class="$style.navElement"
       @click="routeToCharacters()"
     >
       Characters
-    </div>
-    <div
+    </a>
+    <a
       :class="$style.navElement"
       @click="routeToPlanets()"
     >
       Planets
-    </div>
+    </a>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'NavPanel',
+  data() {
+    return {
+      expandedWidth: {
+        'width': '280px'
+      },
+      collapsedWidth: {
+        'width': '0px'
+      }
+    }
+  },
+  computed: {
+    ...mapState({ isMenuVisible: state => state.application.isMenuVisible }),
+  },
   methods: {
     routeToFilms() {
       this.$router.push('/films');
@@ -41,28 +56,22 @@ export default {
 <style module>
 .navBar {
   position: fixed;
+  z-index: 1;
   height: 100%;
-  width: 280px;
   display: flex;
   flex-direction: column;
   font-size: 30pt;
   font-weight: bold;
-  color: black;
-  background-color: lightgray;
-}
-.signOutBtn {
-  background-color: black;
-  color: #fadb03;
-  margin: 2px 1px;
-  font-size: 12pt;
-  font-weight: bold;
-  flex: 1 -10%;
+  color: #1a1a1a;
+  background-color: #1a1a1a;
+  overflow-x: hidden;
+  transition: 0.5s;
 }
 .navElement {
+  display: block;
   margin: 3px;
-  background-color: black;
+  background-color: #1a1a1a;
   color: #fadb03;
-  text-align: center;
   cursor: pointer;
 }
 
